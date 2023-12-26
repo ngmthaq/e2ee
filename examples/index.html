@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hash</title>
+    <script src="../build/hash.min.js"></script>
+  </head>
+  <body>
+    <input placeholder="Plain Text" type="text" style="width: 60%; margin: 16px; padding: 16px" id="input1" /><br />
+    <input readonly placeholder="Encryption Output" type="text" style="width: 60%; margin: 16px; padding: 16px" name="output" id="output1" /><br />
+    <button id="encrypt">Encrypt</button>
+    <br />
+    <hr />
+    <input placeholder="Encrypted Text" type="text" style="width: 60%; margin: 16px; padding: 16px" id="input2" /><br />
+    <input placeholder="Key" type="text" style="width: 60%; margin: 16px; padding: 16px" id="key2" /><br />
+    <input readonly placeholder="Plain Text" type="text" style="width: 60%; margin: 16px; padding: 16px" id="output2" /><br />
+    <button id="decrypt">Decrypt</button>
+    <br />
+    <hr />
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos porro harum, hic minima provident at quia mollitia similique sed temporibus
+      consequatur commodi magnam? Laudantium dolores illum, modi ad cum repellendus.
+    </p>
+  </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const input1 = document.getElementById("input1");
+      const output1 = document.getElementById("output1");
+      const input2 = document.getElementById("input2");
+      const key2 = document.getElementById("key2");
+      const ouput2 = document.getElementById("ouput2");
+      const encryptButton = document.getElementById("encrypt");
+      const decryptButton = document.getElementById("decrypt");
+
+      function encrypt(e) {
+        output1.value = JSON.stringify(window.Hash.encrypt.rowFence(input1.value));
+      }
+
+      function decrypt(e) {
+        output2.value = window.Hash.decrypt.rowFence(input2.value, key2.value);
+      }
+
+      encryptButton.onclick = encrypt;
+
+      decryptButton.onclick = decrypt;
+    });
+  </script>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "hash",
+  "version": "0.0.1",
+  "description": "Hash function in JS",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx webpack --config ./webpack.config.dev.js --watch",
+    "build": "npx webpack --config ./webpack.config.prod.js",
+    "format": "npx prettier --write ."
+  },
+  "keywords": [
+    "Hash",
+    "Encryption",
+    "Decryption"
+  ],
+  "author": "ngmthaq",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
