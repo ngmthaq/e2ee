@@ -9,7 +9,7 @@ export default class Decryption {
    */
   public rowFence(encryptedText: string, key: number, padding?: string): string {
     if (!padding) padding = "=";
-    encryptedText = atob(decodeURI(encryptedText));
+    encryptedText = atob(encryptedText);
     const encryptedTextLength = encryptedText.length;
     const encryptedTextArray = encryptedText.split("");
     const columns = Math.round(encryptedTextLength / key);
@@ -26,11 +26,12 @@ export default class Decryption {
       plainTextRows[p] = rows.map((row) => row[p]);
     }
     const decryptedText = plainTextRows.map((row) => row.join("")).join("");
-    const plainTextArray = [];
+    const encodeTextArray = [];
     for (let k = decryptedText.length; k > 0; k--) {
       const char = decryptedText[k - 1];
-      if (char !== padding) plainTextArray.push(char);
+      if (char !== padding) encodeTextArray.push(char);
     }
-    return plainTextArray.reverse().join("");
+    const encodeText = encodeTextArray.reverse().join("");
+    return decodeURI(encodeText);
   }
 }
