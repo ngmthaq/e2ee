@@ -7,15 +7,18 @@
     <script src="../dist/hash.min.js"></script>
   </head>
   <body>
-    <input placeholder="Key" type="text" style="width: 60%; margin: 16px; padding: 16px" id="key" /><br />
+    <input readonly type="text" id="genKey" placeholder="Random Key" style="width: 60%; margin: 16px 0; padding: 16px" />
+    <br />
     <hr />
-    <input placeholder="Plain Text" type="text" style="width: 60%; margin: 16px; padding: 16px" id="input1" /><br />
-    <input readonly placeholder="Encryption Output" type="text" style="width: 60%; margin: 16px; padding: 16px" name="output" id="output1" /><br />
+    <input placeholder="Key" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="key1" /><br />
+    <input placeholder="Plain Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="input1" /><br />
+    <input readonly placeholder="Encryption Output" type="text" style="width: 60%; margin: 16px 0; padding: 16px" name="output" id="output1" /><br />
     <button id="encrypt">Encrypt</button>
     <br />
     <hr />
-    <input placeholder="Encrypted Text" type="text" style="width: 60%; margin: 16px; padding: 16px" id="input2" /><br />
-    <input readonly placeholder="Plain Text" type="text" style="width: 60%; margin: 16px; padding: 16px" id="output2" /><br />
+    <input placeholder="Key" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="key2" /><br />
+    <input placeholder="Encrypted Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="input2" /><br />
+    <input readonly placeholder="Plain Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="output2" /><br />
     <button id="decrypt">Decrypt</button>
     <br />
     <hr />
@@ -26,7 +29,8 @@
   </body>
   <script>
     window.addEventListener("DOMContentLoaded", () => {
-      const key = document.getElementById("key");
+      const key1 = document.getElementById("key1");
+      const key2 = document.getElementById("key2");
       const input1 = document.getElementById("input1");
       const output1 = document.getElementById("output1");
       const input2 = document.getElementById("input2");
@@ -35,16 +39,18 @@
       const decryptButton = document.getElementById("decrypt");
 
       function encrypt(e) {
-        output1.value = E2EE.encrypt(input1.value, key.value);
+        output1.value = E2EE.encrypt(input1.value, key1.value) || "";
       }
 
       function decrypt(e) {
-        output2.value = E2EE.decrypt(input2.value, key.value);
+        output2.value = E2EE.decrypt(input2.value, key2.value) || "";
       }
 
       encryptButton.onclick = encrypt;
 
       decryptButton.onclick = decrypt;
+
+      document.getElementById("genKey").value = E2EE.generateMasterKey();
     });
   </script>
 </html>
