@@ -4,7 +4,7 @@ export type EncryptResponseType = {
   kz: number;
 };
 
-export default class E2EE {
+export class E2EEGenerator {
   /**
    * Encryption with row fence cipher
    *
@@ -78,3 +78,5 @@ export default class E2EE {
     }
   }
 }
+
+export const E2EE = new E2EEGenerator();

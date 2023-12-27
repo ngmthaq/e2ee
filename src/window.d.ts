@@ -1,4 +1,4 @@
-import E2EE from "./index";
+import { E2EE } from "./index";
 
 declare global {
   interface Window {
