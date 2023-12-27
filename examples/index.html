@@ -7,18 +7,26 @@
     <script src="../dist/hash.min.js"></script>
   </head>
   <body>
-    <input readonly type="text" id="genKey" placeholder="Random Key" style="width: 60%; margin: 16px 0; padding: 16px" />
+    <label for="genKey">Random Master Key:</label>
+    <br />
+    <input disabled type="text" id="genKey" placeholder="Random Master Key" style="width: 60%; margin: 16px 0; padding: 16px" />
     <br />
     <hr />
-    <input placeholder="Key" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="key1" /><br />
-    <input placeholder="Plain Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="input1" /><br />
-    <input readonly placeholder="Encryption Output" type="text" style="width: 60%; margin: 16px 0; padding: 16px" name="output" id="output1" /><br />
+    <input placeholder="Key" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="key1" />
+    <br />
+    <input placeholder="Plain Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="input1" />
+    <br />
+    <input disabled placeholder="Encryption Output" type="text" style="width: 60%; margin: 16px 0; padding: 16px" name="output" id="output1" />
+    <br />
     <button id="encrypt">Encrypt</button>
     <br />
     <hr />
-    <input placeholder="Key" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="key2" /><br />
-    <input placeholder="Encrypted Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="input2" /><br />
-    <input readonly placeholder="Plain Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="output2" /><br />
+    <input placeholder="Key" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="key2" />
+    <br />
+    <input placeholder="Encrypted Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="input2" />
+    <br />
+    <input disabled placeholder="Plain Text" type="text" style="width: 60%; margin: 16px 0; padding: 16px" id="output2" />
+    <br />
     <button id="decrypt">Decrypt</button>
     <br />
     <hr />

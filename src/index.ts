@@ -197,9 +197,9 @@ export class E2EEGenerator {
    * @param {string} input
    * @param {string} masterKey
    * @param {string} personalKey
-   * @returns {string}
+   * @returns {string | null}
    */
-  public encrypt(input: string, masterKey: string, personalKey: string = ""): string {
+  public encrypt(input: string, masterKey: string, personalKey: string = ""): string | null {
     try {
       const key = masterKey + personalKey;
       if (!key) throw new Error("Key must not be empty");
@@ -222,9 +222,9 @@ export class E2EEGenerator {
    * @param {string} input
    * @param {string} masterKey
    * @param {string} personalKey
-   * @returns {string}
+   * @returns {string | null}
    */
-  public decrypt(input: string, masterKey: string, personalKey: string = ""): string {
+  public decrypt(input: string, masterKey: string, personalKey: string = ""): string | null {
     try {
       const key = masterKey + personalKey;
       if (!key) throw new Error("Key must not be empty");
@@ -249,7 +249,7 @@ export class E2EEGenerator {
   public generateMasterKey(): string {
     const firstChar = this.randomInt(0, 9);
     const secondChar = this.randomLetter(1);
-    const restChars = this.randomString(30);
+    const restChars = this.randomString(14);
     return firstChar + secondChar + restChars;
   }
 
@@ -259,7 +259,7 @@ export class E2EEGenerator {
    * @returns {string}
    */
   public generatePersonalKey(): string {
-    return this.randomString(32);
+    return this.randomString(16);
   }
 }
 
