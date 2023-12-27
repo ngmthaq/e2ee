@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/common/index.ts",
+  entry: "./src/index.ts",
   mode: "production",
   module: {
     rules: [
@@ -17,6 +17,6 @@ module.exports = {
   },
   output: {
     filename: "hash.min.js",
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "dist"),
   },
 };

@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/common/index.ts",
+  entry: "./src/index.ts",
   mode: "development",
   devtool: "inline-source-map",
   module: {
@@ -17,7 +17,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
   output: {
-    filename: "index.bundle.js",
-    path: path.resolve(__dirname, "build"),
+    filename: "hash.min.js",
+    path: path.resolve(__dirname, "dist"),
   },
 };
