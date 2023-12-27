@@ -1,5 +1,5 @@
 {
-  "include": ["./src/index.ts", "./src/window.d.ts"],
+  "include": ["./src/index.ts", "./src/e2ee.ts", "./src/window.d.ts"],
   "compilerOptions": {
     "outDir": "./build/",
     "noImplicitAny": true,
